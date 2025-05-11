@@ -1,4 +1,4 @@
-# WeatherVue - Modern Weather Dashboard
+# WeatherApp - Modern Weather Dashboard
 
 [![Vue](https://img.shields.io/badge/Vue-3.3-4FC08D.svg?logo=vuedotjs)](https://vuejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
