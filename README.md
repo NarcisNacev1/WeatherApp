@@ -99,4 +99,3 @@ Contributions are welcome! Please follow these steps:
 - Weather data provided by [WeatherAPI.com](https://www.weatherapi.com/)
 - Geocoding by [OpenCage Geocoder](https://opencagedata.com/)
 - UI inspiration from modern weather applications
-```
