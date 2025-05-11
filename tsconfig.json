@@ -5,7 +5,8 @@
         "module": "ESNext",
         "lib": ["ES2020", "DOM", "DOM.Iterable"],
         "skipLibCheck": true,
-        "moduleResolution": "bundler",
+        "types": ["node"],
+        "moduleResolution": "node",
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
@@ -16,6 +17,12 @@
         "noFallthroughCasesInSwitch": true,
         "jsx": "preserve"
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-    "references": [{ "path": "./tsconfig.node.json" }],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "node_modules/vitest/globals.d.ts"
+    ],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
