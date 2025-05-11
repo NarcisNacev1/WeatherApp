@@ -35,8 +35,8 @@ A beautiful, real-time weather dashboard built with Vue 3 and TypeScript, featur
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/weathervue.git
-cd weathervue
+git clone [https://github.com/your-username/weathervue.git](https://github.com/NarcisNacev1/WeatherApp.git)
+cd WeatherApp
 ```
 
 2. **Install dependencies**
@@ -53,7 +53,7 @@ VITE_GEOCODING_API_KEY=your_opencage_key
 
 4. **Run development server**
 ```bash
-npm run dev
+npm run dev or vite
 ```
 
 ## Configuration
@@ -93,10 +93,6 @@ Contributions are welcome! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Acknowledgements
 
