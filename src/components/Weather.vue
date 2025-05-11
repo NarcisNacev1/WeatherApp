@@ -8,11 +8,11 @@ import Temperature from './Temperature.vue';
 const weatherStore = useWeatherStore();
 
 const fetchWeather = (city: string): void => {
-  weatherStore.fetchWeather(city);
+    weatherStore.fetchWeather(city);
 };
 
 onMounted(() => {
-  weatherStore.fetchUserLocation();
+    weatherStore.fetchUserLocation();
 });
 </script>
 

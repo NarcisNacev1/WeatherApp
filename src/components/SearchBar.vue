@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useWeatherStore } from "../stores/weatherStore.ts";
 
 const emit = defineEmits<{
-  (e: 'city-searched', city: string): void
+    (e: 'city-searched', city: string): void
 }>();
 
-const city = ref<string>('');
-
 const searchCity = (): void => {
-  emit('city-searched', city.value);
+    emit('city-searched', weatherStore.city);
 };
+
+const weatherStore = useWeatherStore();
 </script>
 
 <template>
     <div class="city">
-        <input type="text" id="search" v-model="city" placeholder="search city..">
+        <input type="text" id="search" v-model="weatherStore.city" placeholder="search city..">
         <img src="../assets/search.png" alt="search-icon" style="width: 30px;" @click="searchCity">
     </div>
 </template>

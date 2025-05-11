@@ -6,6 +6,7 @@ export const useWeatherStore = defineStore('weather', () => {
     const temperature = ref<number | null>(null);
     const address = ref<string | undefined>(undefined);
     const date = ref<string | null>(null);
+    const city = ref<string>('');
 
     const formattedDate = computed<string>(() => {
         if (date.value) {
@@ -26,7 +27,6 @@ export const useWeatherStore = defineStore('weather', () => {
         return "";
     });
 
-    // Actions
     const fetchWeather = async (city: string): Promise<void> => {
         try {
             const response = await axios.get("https://weatherapi-com.p.rapidapi.com/forecast.json", {
@@ -79,11 +79,13 @@ export const useWeatherStore = defineStore('weather', () => {
         }
     };
 
+
     return {
         temperature,
         address,
         date,
         formattedDate,
+        city,
         fetchWeather,
         fetchUserLocation,
         fetchUserCity
