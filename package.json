@@ -1,20 +1,30 @@
 {
-  "name": "weatherapp",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
     "axios": "^1.4.0",
+    "jiti": "^2.4.2",
     "pinia": "^3.0.2",
     "typescript": "^5.8.3",
+    "vitest": "^3.1.3",
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "@vitest/eslint-plugin": "^1.1.44",
+    "@vue/eslint-config-typescript": "^14.5.0",
+    "eslint": "^9.26.0",
+    "eslint-plugin-vue": "^10.1.0",
     "vite": "^4.3.9"
-  }
+  },
+  "name": "weatherapp",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "lint:ci": "eslint ."
+  },
+  "version": "0.0.0"
 }

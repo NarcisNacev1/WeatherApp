@@ -18,10 +18,10 @@ export const useWeatherStore = defineStore('weather', () => {
         if (date.value) {
             const dateObj = new Date(date.value);
             const months: string[] = [
-                "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+                'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
             ];
-            const days: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
             const month = months[dateObj.getMonth()];
             const day = dateObj.getDate();
@@ -30,7 +30,7 @@ export const useWeatherStore = defineStore('weather', () => {
 
             return `${month} ${day} ${year}, ${weekday}`;
         }
-        return "";
+        return '';
     });
 
     const backgroundVideo = computed<string>(() => {
@@ -53,7 +53,6 @@ export const useWeatherStore = defineStore('weather', () => {
 
         return 'default';
     });
-
 
     const temperatureClass = computed<string>(() => {
         if (temperature.value === null) return 'temp-normal';
@@ -78,24 +77,46 @@ export const useWeatherStore = defineStore('weather', () => {
         return 'night';
     });
 
+    const weatherAnimation = computed<string>(() => {
+        if (!weatherCondition.value) return 'weather-default';
+
+        const condition = weatherCondition.value.toLowerCase();
+
+        if (condition.includes('rain') || condition.includes('drizzle')) {
+            return 'weather-rain';
+        } else if (condition.includes('snow')) {
+            return 'weather-snow';
+        } else if (condition.includes('thunder') || condition.includes('storm')) {
+            return 'weather-storm';
+        } else if (condition.includes('clear') || condition.includes('sunny')) {
+            return 'weather-sunny';
+        } else if (condition.includes('cloud')) {
+            return 'weather-cloudy';
+        } else if (condition.includes('fog') || condition.includes('mist')) {
+            return 'weather-fog';
+        }
+
+        return 'weather-default';
+    });
+
     const fetchWeather = async (city: string): Promise<void> => {
         isLoading.value = true;
         error.value = null;
 
         try {
-            const response = await axios.get("https://weatherapi-com.p.rapidapi.com/forecast.json", {
+            const response = await axios.get('https://weatherapi-com.p.rapidapi.com/forecast.json', {
                 params: {
                     q: city,
                     days: 3,
                 },
                 headers: {
-                    "X-RapidAPI-Key": "9aa7e4b2d9msh6a2d904b3b7c8d6p188a89jsn9033df5576a6",
-                    "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+                    'X-RapidAPI-Key': '9aa7e4b2d9msh6a2d904b3b7c8d6p188a89jsn9033df5576a6',
+                    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
                 },
             });
 
             temperature.value = response.data.current.temp_c;
-            address.value = response.data.location.name + ", " + response.data.location.country;
+            address.value = response.data.location.name + ', ' + response.data.location.country;
             date.value = response.data.location.localtime;
 
             weatherCondition.value = response.data.current.condition.text;
@@ -108,7 +129,7 @@ export const useWeatherStore = defineStore('weather', () => {
                 minTemp: Math.round(day.day.mintemp_c),
                 condition: day.day.condition.text,
                 icon: day.day.condition.icon,
-                chanceOfRain: day.day.daily_chance_of_rain
+                chanceOfRain: day.day.daily_chance_of_rain,
             }));
 
         } catch (error) {
@@ -131,20 +152,20 @@ export const useWeatherStore = defineStore('weather', () => {
                 (error) => {
                     console.error(error.message);
                     isLoading.value = false;
-                }
+                },
             );
         } else {
-            console.error("Geolocation is not supported");
+            console.error('Geolocation is not supported');
             isLoading.value = false;
         }
     };
 
     const fetchUserCity = async (latitude: number, longitude: number): Promise<void> => {
-        const apiKey = "ec59eced5482443ea5d121030251902";
+        const apiKey = 'ec59eced5482443ea5d121030251902';
 
         try {
             const response = await axios.get(
-                `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`
+                `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`,
             );
             const city = response.data.results[0].components.city;
             fetchWeather(city);
@@ -169,8 +190,9 @@ export const useWeatherStore = defineStore('weather', () => {
         backgroundVideo,
         temperatureClass,
         timeOfDay,
+        weatherAnimation,
         fetchWeather,
         fetchUserLocation,
-        fetchUserCity
+        fetchUserCity,
     };
 });

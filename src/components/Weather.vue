@@ -17,12 +17,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-      <SearchBar @city-searched="fetchWeather"></SearchBar>
-      <Temperature :temperature="weatherStore.temperature"></Temperature>
-      <AddressDate
-          :address="weatherStore.address"
-          :formattedDate="weatherStore.formattedDate"
-      ></AddressDate>
+    <div>
+        <SearchBar @city-searched="fetchWeather"></SearchBar>
+        <Temperature :temperature="weatherStore.temperature"></Temperature>
+        <AddressDate
+            :address="weatherStore.address"
+            :formattedDate="weatherStore.formattedDate"
+        ></AddressDate>
     </div>
 </template>
