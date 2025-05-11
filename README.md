@@ -35,7 +35,7 @@ A beautiful, real-time weather dashboard built with Vue 3 and TypeScript, featur
 
 1. **Clone the repository**
 ```bash
-git clone [https://github.com/your-username/weathervue.git](https://github.com/NarcisNacev1/WeatherApp.git)
+git clone (https://github.com/NarcisNacev1/WeatherApp.git)
 cd WeatherApp
 ```
 
