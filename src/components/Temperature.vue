@@ -1,14 +1,14 @@
+<script setup lang="ts">
+import {TemperatureProps} from "../interfaces/temperatures.interface.ts";
+
+defineProps<TemperatureProps>();
+</script>
+
 <template>
     <div class="temp">
-        <h3>{{ Math.round(temperature) }}<sup>o</sup>C</h3>
+        <h3>{{ Math.round(temperature || 0) }}<sup>o</sup>C</h3>
     </div>
 </template>
-
-<script>
-export default {
-    props: ['temperature']
-}
-</script>
 
 <style scoped>
 .temp {

@@ -1,14 +1,13 @@
+<script setup lang="ts">
+import {AddressDateProps} from "../interfaces/addresses.Interface.ts";
+
+defineProps<AddressDateProps>();
+</script>
+
 <template>
     <div class="address"><span>{{ address }}</span></div>
-
     <div class="date"><span>{{ formattedDate }}</span></div>
 </template>
-
-<script>
-export default {
-    props: ['address', 'formattedDate']
-}
-</script>
 
 <style scoped>
 div {

@@ -1,26 +1,23 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const emit = defineEmits<{
+  (e: 'city-searched', city: string): void
+}>();
+
+const city = ref<string>('');
+
+const searchCity = (): void => {
+  emit('city-searched', city.value);
+};
+</script>
+
 <template>
     <div class="city">
         <input type="text" id="search" v-model="city" placeholder="search city..">
-
-
-        <img src="../assets/search.png" alt="seach-icon" style="width: 30px;" @click="searchCity">
+        <img src="../assets/search.png" alt="search-icon" style="width: 30px;" @click="searchCity">
     </div>
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            city: "",
-        };
-    },
-    methods: {
-        searchCity() {
-            this.$emit('city-searched', this.city);
-        },
-    },
-};
-</script>
 
 <style scoped>
 .city {
@@ -36,6 +33,7 @@ export default {
 .city img {
     position: relative;
     right: 50px;
+    cursor: pointer;
 }
 
 input {
