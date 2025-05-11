@@ -6,7 +6,7 @@
 
 A beautiful, real-time weather dashboard built with Vue 3 and TypeScript, featuring dynamic backgrounds, detailed forecasts, and a mobile-first design.
 
-![Weather Dashboard Preview](screenshot.png)
+![image](https://github.com/user-attachments/assets/fbb0edfe-e4e0-4def-a79e-034259b486fc)
 
 ## Features
 
